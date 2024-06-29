@@ -8,3 +8,5 @@ uvicorn
 gunicorn
 uvloop
 httptools
+fastapi[all]
+logging
