@@ -1,11 +1,24 @@
 import uvicorn
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import sklearn
+import logging
 print(sklearn.__version__)
 import pickle
 
 app = FastAPI()
+
+app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 
 try:
